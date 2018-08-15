@@ -55,12 +55,20 @@ void getLetter(int num, int mp) {
 }	
 
 void convert(int num) {
-/*	char *roman = "";
 	int accumulatedSum = 0;
-*/
 	// Get each digit
-	getLetter(num, 10);
+	int ones = num % 10;
+	accumulatedSum += ones;
+	int tens = (num % 100) - accumulatedSum;
+	accumulatedSum += tens;
+	int hundreds = (num % 1000) - accumulatedSum;
+	accumulatedSum += hundreds;
+	int thousands = (num % 10000) - accumulatedSum;
 
+	getLetter(thousands, 1000);
+	getLetter(hundreds, 100);
+	getLetter(tens, 10);
+	getLetter(ones, 1);
 	return;
 }
 
