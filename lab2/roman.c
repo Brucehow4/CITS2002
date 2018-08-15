@@ -55,6 +55,7 @@ void getLetter(int num, int mp) {
 }	
 
 void convert(int num) {
+
 	int accumulatedSum = 0;
 	// Get each digit
 	int ones = num % 10;
@@ -64,6 +65,13 @@ void convert(int num) {
 	int hundreds = (num % 1000) - accumulatedSum;
 	accumulatedSum += hundreds;
 	int thousands = (num % 10000) - accumulatedSum;
+	accumulatedSum += thousands;
+
+	if(num >= 10000) {
+		for(int i = 1000; i <= num - accumulatedSum; i+= 1000) {
+		       printf("M");	
+		}
+	}
 
 	getLetter(thousands, 1000);
 	getLetter(hundreds, 100);
